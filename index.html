@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>АгроСкан – агрономическое заключение по фото за 10 минут</title>
+<meta name="description" content="Фото и комментарий – в чат-бот в MAX, PDF-заключение – обратно в тот же чат. Для поставщиков СЗР и удобрений и агрономических консультантов.">
+<meta name="theme-color" content="#24503F">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <span class="brand">АгроСкан</span>
+    <a class="topbar-link" href="#form">Оставить заявку</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <h1>Менеджер снимает поле на телефон – через 10 минут у него на руках агрономическое заключение.</h1>
+    <p class="hero-sub">Для поставщиков СЗР и удобрений и агрономических консультантов. Фото и комментарий – в чат-бот в MAX, PDF – обратно в тот же чат.</p>
+    <div class="cta">
+      <a class="btn btn-main" id="cta-main" href="#form">Оставить заявку</a>
+      <a class="btn btn-second" href="{{MAX_SUPPORT_URL}}" target="_blank" rel="noopener noreferrer">Написать в MAX</a>
+    </div>
+    <p class="cta-note">Первый кейс – бесплатно.</p>
+  </div>
+</section>
+
+<section class="section reveal" id="how">
+  <div class="wrap">
+    <h2>Как это работает</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num mono">01</span>
+        <h3 class="step-title">Фото</h3>
+        <p>Снимки растения и поля плюс комментарий голосом или текстом – в чат-бот в MAX.</p>
+      </li>
+      <li class="step">
+        <span class="step-num mono">02</span>
+        <h3 class="step-title">Разбор</h3>
+        <p>Система описывает, что видно, и строит версии причины.</p>
+      </li>
+      <li class="step">
+        <span class="step-num mono">03</span>
+        <h3 class="step-title">Сверка</h3>
+        <p>Версии проверяются по справочникам культур и порогам вредоносности.</p>
+      </li>
+      <li class="step">
+        <span class="step-num mono">04</span>
+        <h3 class="step-title">Заключение</h3>
+        <p>PDF приходит в тот же чат. От последнего фото – около 10 минут.</p>
+      </li>
+    </ol>
+    <p class="note">Сейчас в справочниках подсолнечник, кукуруза и пшеница. Остальные культуры – в работе.</p>
+  </div>
+</section>
+
+<section class="section reveal" id="tasks">
+  <div class="wrap">
+    <h2>Три задачи</h2>
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th scope="col">Задача</th>
+          <th scope="col">Было</th>
+          <th scope="col">Стало</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Быстрый ответ клиенту в поле</th>
+          <td data-label="Было">Фото уходят агроному в мессенджер, ответ через день-три.</td>
+          <td data-label="Стало">Заключение приходит, пока менеджер ещё у поля.</td>
+        </tr>
+        <tr>
+          <th scope="row">Агроном – на сложных случаях</th>
+          <td data-label="Было">Один агроном на нескольких продажников разбирает всё подряд.</td>
+          <td data-label="Стало">Рутину разбирает система. Если версии близки, заключение прямо пишет: нужен агроном.</td>
+        </tr>
+        <tr>
+          <th scope="row">Документ вместо мнения</th>
+          <td data-label="Было">Рекомендация – голосовое в мессенджере, через месяц никто не помнит, что было сказано.</td>
+          <td data-label="Стало">Структурированное заключение – что видно, версии, уверенность, что проверить.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section reveal" id="report">
+  <div class="wrap">
+    <h2>Как выглядит заключение</h2>
+    <div class="report-grid">
+      <div class="demo">
+        <p class="caps">Демонстрационный кейс</p>
+        <div class="demo-frame">
+          <span class="mono demo-slot">{{DEMO_FRAGMENT}}</span>
+          <span class="demo-cap">Фрагмент заключения</span>
+        </div>
+      </div>
+      <div class="report-notes">
+        <div class="rnote">
+          <h3>Проценты – не вероятность</h3>
+          <p>Это доля совпавших признаков против других кандидатов. Если лидер обгоняет второго меньше чем на 15 пунктов, система лидера не называет.</p>
+        </div>
+        <div class="rnote">
+          <h3>«Не установлен» – честный ответ</h3>
+          <p>Вместе с ним приходит список того, что дослать.</p>
+        </div>
+        <div class="rnote">
+          <h3>Достоверность 0–100 – это инструкция</h3>
+          <p>Комментарий, геометка, история поля – каждый пункт поднимает балл.</p>
+          <div class="ladder" data-ladder>
+            <div class="ladder-bar"><span class="ladder-fill" data-ladder-fill></span></div>
+            <p class="ladder-scale mono" aria-hidden="true">
+              <span data-ladder-step="36">36</span>
+              <span data-ladder-step="46">46</span>
+              <span data-ladder-step="54">54</span>
+              <span data-ladder-step="62">62</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="limits">
+  <div class="wrap">
+    <h2>Чего сервис не делает</h2>
+    <ul class="rules">
+      <li>Не называет торговые марки, номера регистрации и нормы расхода – называет действующее вещество. Препарат подбирает ваш менеджер из своего портфеля.</li>
+      <li>Не заменяет агронома – снимает с него рутину, сложное оставляет ему.</li>
+      <li>Не изображает уверенность – если версии близки, так и пишет и говорит, что прислать.</li>
+      <li>Не назначает обработку – заключение предварительное, решение принимает агроном.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section reveal" id="pilot">
+  <div class="wrap">
+    <h2>Архивный пилот</h2>
+    <p class="lead">Проверьте нас на своих полях. Пришлите летние серии фото, по которым ваш агроном уже поставил диагноз. Мы делаем заключения – вы сравниваете.</p>
+    <dl class="facts">
+      <dt>Что прислать</dt>
+      <dd>3–5 серий сезона 2026, культуры из справочников. Фото и комментарий; в кадре – листок от руки с датой кейса и районом.</dd>
+      <dt>Слепой протокол</dt>
+      <dd>Ответ своего агронома вы присылаете только после нашего заключения.</dd>
+      <dt>Оценка</dt>
+      <dd>Совпал лидер · совпал второй · не совпал. «Не установлено» из-за материала – отдельная категория, не провал.</dd>
+      <dt>Срок</dt>
+      <dd>Две недели от получения всех материалов.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="section reveal" id="prices">
+  <div class="wrap">
+    <h2>Тарифы</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3 class="plan-name">Пилот</h3>
+        <p class="plan-price mono">20 000 ₽ за 5 кейсов</p>
+        <p class="plan-body">Первый кейс – бесплатно, ровно один. Остальные четыре – по <span class="mono">5 000 ₽</span>.</p>
+      </div>
+      <div class="plan">
+        <h3 class="plan-name">Разовый кейс</h3>
+        <p class="plan-price mono">5 000 ₽</p>
+      </div>
+      <div class="plan">
+        <h3 class="plan-name">Подписка</h3>
+        <p class="plan-price mono">30 000 ₽ в месяц</p>
+        <p class="plan-body">15 кейсов в месяц, <span class="mono">2 000 ₽</span> за кейс. Неиспользованные кейсы не переносятся.</p>
+      </div>
+      <div class="plan">
+        <h3 class="plan-name">Сезон</h3>
+        <p class="plan-price mono">270 000 ₽ в год</p>
+        <p class="plan-body">150 кейсов на 12 месяцев, расходуются в любом месяце. <span class="mono">1 800 ₽</span> за кейс.</p>
+      </div>
+    </div>
+    <p class="note">{{VAT_NOTE}}</p>
+  </div>
+</section>
+
+<section class="section reveal" id="start">
+  <div class="wrap">
+    <h2>Что нужно, чтобы начать</h2>
+    <ol class="needs">
+      <li>Реквизиты для договора и счёта.</li>
+      <li>Подписанное согласие на обработку персональных данных – без него первый кейс не принимаем.</li>
+      <li>Кто снимает и отправляет: имя и номер в MAX.</li>
+      <li>Для архивного пилота – серии фото с комментарием и листком от руки в кадре.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section reveal" id="service">
+  <div class="wrap">
+    <h2>Сопровождение и данные</h2>
+    <dl class="facts">
+      <dt>Приём заявок</dt>
+      <dd>Ежедневно <span class="mono">7:00–20:00</span> МСК. После <span class="mono">20:00</span> – утром, в порядке очереди.</dd>
+      <dt>Скорость</dt>
+      <dd>Около 10 минут от последнего фото до готового PDF.</dd>
+      <dt>Обратная связь</dt>
+      <dd>Под каждым заключением кнопка «верно / неверно».</dd>
+      <dt>Данные</dt>
+      <dd>Хранятся на сервере в РФ. На анализ уходят снимки и описание – без документов и данных хозяйства.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="section reveal" id="faq">
+  <div class="wrap">
+    <h2>Вопросы</h2>
+    <div class="faq">
+      <details>
+        <summary>У нас есть агроном</summary>
+        <div class="faq-body"><p>Отлично, инструмент для него: рутину забираем, сложное остаётся ему. Пусть он нас и проверит на архивных кейсах.</p></div>
+      </details>
+      <details>
+        <summary>ИИ же ошибается?</summary>
+        <div class="faq-body"><p>Поэтому заключение показывает уверенность и честно пишет «не установлено», если материала не хватает. Проверьте на своих архивных кейсах.</p></div>
+      </details>
+      <details>
+        <summary>Куда уходят данные?</summary>
+        <div class="faq-body"><p>Хранятся на сервере в РФ. На анализ уходят снимки и описание – без документов и данных хозяйства.</p></div>
+      </details>
+      <details>
+        <summary>А где препарат?</summary>
+        <div class="faq-body"><p>Заключение называет действующее вещество. Препарат из своего портфеля подберёт ваш менеджер.</p></div>
+      </details>
+      <details>
+        <summary>Какие культуры?</summary>
+        <div class="faq-body"><p>Подсолнечник, кукуруза, пшеница. Остальные – в работе.</p></div>
+      </details>
+      <details>
+        <summary>Как снимать кейс?</summary>
+        <div class="faq-body">
+          <dl class="shots">
+            <dt>Крупный план</dt>
+            <dd>Поражённый орган вплотную, в фокусе.</dd>
+            <dt>Изнанка</dt>
+            <dd>Нижняя сторона листа.</dd>
+            <dt>Растение</dt>
+            <dd>Целиком.</dd>
+            <dt>Рядок</dt>
+            <dd>Видно густоту и ровность всходов.</dd>
+            <dt>Поле</dt>
+            <dd>Общий план массива.</dd>
+            <dt>Разлом</dt>
+            <dd>Разрез корзинки, стебля или початка.</dd>
+            <dt>Бумажка</dt>
+            <dd>Листок от руки: дата и поле или район.</dd>
+            <dt>Комментарий</dt>
+            <dd>Голосом или текстом: что видите, где, сколько, чем обрабатывали.</dd>
+          </dl>
+          <p>Сильнее всего достоверность поднимают подсчёт численности вредителя, комментарий, общий план поля, геометка и история поля.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal form-section" id="form">
+  <div class="wrap">
+    <h2>Оставить заявку</h2>
+    <p class="lead">Ответим в рабочее время. Быстрее – написать в MAX.</p>
+
+    <p class="form-done" id="lead-ok" tabindex="-1">Заявка принята. Свяжемся в рабочее время – или напишите сразу в MAX.</p>
+
+    <form class="lead-form" id="lead-form" method="post" action="/api/lead" accept-charset="utf-8">
+      <div class="field">
+        <label for="f-name">Имя<span class="req">*</span></label>
+        <input id="f-name" name="name" type="text" maxlength="120" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="f-phone">Телефон<span class="req">*</span></label>
+        <input id="f-phone" name="phone" type="tel" maxlength="32" autocomplete="tel" required>
+      </div>
+      <div class="field">
+        <label for="f-company">Компания<span class="req">*</span></label>
+        <input id="f-company" name="company" type="text" maxlength="200" autocomplete="organization" required>
+      </div>
+      <fieldset class="field field-wide">
+        <legend>Кто вы</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="role" value="Поставщик СЗР или удобрений"><span>Поставщик СЗР или удобрений</span></label>
+          <label class="choice"><input type="radio" name="role" value="Агроконсультант"><span>Агроконсультант</span></label>
+          <label class="choice"><input type="radio" name="role" value="Хозяйство"><span>Хозяйство</span></label>
+          <label class="choice"><input type="radio" name="role" value="Другое"><span>Другое</span></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="f-region">Регион</label>
+        <input id="f-region" name="region" type="text" maxlength="120">
+      </div>
+      <div class="field field-wide">
+        <label for="f-comment">Комментарий</label>
+        <textarea id="f-comment" name="comment" rows="4" maxlength="2000"></textarea>
+      </div>
+
+      <div class="trap" aria-hidden="true">
+        <label for="f-site">Сайт</label>
+        <input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="consent">
+        <input id="f-consent" name="consent" type="checkbox" value="yes" required>
+        <label for="f-consent">Я даю согласие на <a href="consent.html">обработку персональных данных</a> на условиях <a href="privacy.html">Политики</a>.</label>
+      </div>
+
+      <p class="form-error" id="form-error" role="status" aria-live="polite"></p>
+
+      <button class="btn btn-main" type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p>ИП Мичурин Никита Игоревич · ИНН <span class="mono">027809392269</span> · ОГРНИП <span class="mono">322028000030512</span> · {{EMAIL}}</p>
+    <p><a href="privacy.html">Политика обработки персональных данных</a> · © 2026 АгроСкан</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+<script>
+(function () {
+  var form = document.getElementById('lead-form');
+  var box = document.getElementById('form-error');
+  if (!form || !box) { return; }
+  form.setAttribute('action', '');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    box.textContent = 'Демонстрационная копия: заявка не отправляется. '
+      + 'На рабочем сайте эта кнопка создаёт заявку.';
+  }, true);
+}());
+</script>
+</body>
+</html>
